@@ -1,0 +1,2 @@
+#spring boot启动时，自动加载这个文件，根据配置项自动进行相应配置和实例化ApiClientSdkConfig
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.yupi.apiclientsdk.ApiClientSdkConfig

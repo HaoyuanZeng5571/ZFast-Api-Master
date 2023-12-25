@@ -82,6 +82,7 @@ public class ApiClient {
         String jsonStr = JSONUtil.toJsonStr(user);
         //使用HttpUtil工具发起POST请求，并获取服务器返回的结果
         HttpResponse httpResponse = HttpRequest.post(GATEWAY_HOST + "/api/name/user")
+                // 添加构造的请求头
                 .addHeaders(getHeaderMap(jsonStr))
                 .body(jsonStr)
                 .execute();

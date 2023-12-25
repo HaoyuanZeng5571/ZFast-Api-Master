@@ -208,8 +208,7 @@ public class InterfaceInfoController {
      */
     @PostMapping("/online")
     @AuthCheck(mustRole = "admin")  //确保管理员调用
-    public BaseResponse<Boolean> onlineInterfaceInfo(@RequestBody IdRequest idRequest,
-                                                     HttpServletRequest request) {
+    public BaseResponse<Boolean> onlineInterfaceInfo(@RequestBody IdRequest idRequest, HttpServletRequest request) {
 
         //如果id为null或者id小于0
         if (idRequest == null || idRequest.getId() <= 0) {
@@ -227,12 +226,20 @@ public class InterfaceInfoController {
         }
 
         //  2.判断接口是否可以调用
-        // 创建一个User对象
-        com.yupi.apiclientsdk.model.User user = new com.yupi.apiclientsdk.model.User();
-        user.setUsername("test");
-        //  通过 apiClient.getUserNameByPost(user)方法传入user对象
-        String userName = apiClient.getUserNameByPost(user);
-        // 如果userName为空或空白字符串
+        String url = oldInterfaceInfo.getUrl();
+        String userName;
+        if ("http://localhost:8123/api/name/user".equals(url)) {
+            // 创建一个User对象
+            com.yupi.apiclientsdk.model.User user = new com.yupi.apiclientsdk.model.User();
+            user.setUsername("test");
+            userName = apiClient.getUserNameByPost(user);
+        }
+        else if ("http://localhost:8123/api/name/".equals(url)) {
+            userName = apiClient.getNameByGet("test");
+        }
+        else {
+            userName = apiClient.getNameByPost("test");
+        }
         if (StringUtils.isBlank(userName)) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR,"接口验证失败");
         }
@@ -251,7 +258,6 @@ public class InterfaceInfoController {
         return ResultUtils.success(result);
 
     }
-
 
     /**
      * 下线接口
@@ -281,11 +287,23 @@ public class InterfaceInfoController {
         }
 
         //  2.判断接口是否可以调用
-        // 创建一个User对象
-        com.yupi.apiclientsdk.model.User user = new com.yupi.apiclientsdk.model.User();
-        user.setUsername("test");
+
+        String url = oldInterfaceInfo.getUrl();
+        String userName;
+        if ("http://localhost:8123/api/name/user".equals(url)) {
+            // 创建一个User对象
+            com.yupi.apiclientsdk.model.User user = new com.yupi.apiclientsdk.model.User();
+            user.setUsername("test");
+            userName = apiClient.getUserNameByPost(user);
+        }
+        else if ("http://localhost:8123/api/name/".equals(url)) {
+            userName = apiClient.getNameByGet("test");
+        }
+        else {
+            userName = apiClient.getNameByPost("test");
+        }
         //  通过 apiClient.getUserNameByPost(user)方法传入user对象
-        String userName = apiClient.getUserNameByPost(user);
+        //String userName = apiClient.getUserNameByPost(user);
         // 如果userName为空或空白字符串
         if (StringUtils.isBlank(userName)) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口验证失败");
@@ -304,7 +322,6 @@ public class InterfaceInfoController {
         //  返回一个成功的响应，响应中携带result值
         return ResultUtils.success(result);
     }
-
 
     /**
      * 调用接口

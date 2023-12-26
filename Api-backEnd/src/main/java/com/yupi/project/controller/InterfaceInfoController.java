@@ -234,7 +234,7 @@ public class InterfaceInfoController {
             user.setUsername("test");
             userName = apiClient.getUserNameByPost(user);
         }
-        else if ("http://localhost:8123/api/name/".equals(url)) {
+        else if ("http://localhost:8123/api/name/get".equals(url)) {
             userName = apiClient.getNameByGet("test");
         }
         else {
@@ -296,7 +296,7 @@ public class InterfaceInfoController {
             user.setUsername("test");
             userName = apiClient.getUserNameByPost(user);
         }
-        else if ("http://localhost:8123/api/name/".equals(url)) {
+        else if ("http://localhost:8123/api/name/get".equals(url)) {
             userName = apiClient.getNameByGet("test");
         }
         else {

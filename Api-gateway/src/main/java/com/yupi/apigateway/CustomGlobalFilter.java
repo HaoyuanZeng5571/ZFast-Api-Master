@@ -89,9 +89,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         String timestamp = headers.getFirst("timestamp");
         String sign = headers.getFirst("sign");
         String body = headers.getFirst("body");
-//        if (!accessKey.equals("yupi") || !secretKey.equals("abcdefg")) {
-//            throw new RuntimeException("无权限");
-//        }
+        // 验证身份合法性
         User invokeUser = null;
         try {
             // 调用内部服务，根据访问密钥获取用户信息
@@ -137,12 +135,18 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
             log.error("getInterfaceInfo errot", e);
         }
         // 检查是否成功获取到接口信息，
-         if (interfaceInfo == null) {
-             // 如果未获取到接口信息，返回处理未授权的响应
-             return handleNoAuth(response);
-         }
+        if (interfaceInfo == null) {
+            // 如果未获取到接口信息，返回处理未授权的响应
+            return handleNoAuth(response);
+        }
 
-         // 6.请求转发，调用模拟接口 + 响应日志
+        // 6.验证用户是否还有请求次数
+        int leftInvokeNum = innerUserInterfaceInfoService.leftInvokeNum(interfaceInfo.getId(), invokeUser.getId());
+        if (leftInvokeNum <= 0) {
+            return handleNoAuth(response);
+        }
+
+        // 7.请求转发，调用模拟接口 + 响应日志
          return handleResponse(exchange,chain,interfaceInfo.getId(),invokeUser.getId());
     }
 

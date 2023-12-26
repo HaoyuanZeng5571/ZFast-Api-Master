@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="v1">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="修改发布/下线根据测试地址来验证接口可用性">
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/vo/InterfaceInfoVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/AnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/AnalysisController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/client/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/client/ApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/mapper/UserInterfaceInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/mapper/UserInterfaceInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserInterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserInterfaceInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/service/InnerUserInterfaceInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/service/InnerUserInterfaceInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/NameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/NameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +56,13 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/zenghaoyuan/Desktop/workspace/Api-Platform-BackEnd",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "spring.configuration.checksum": "add52232c7d0a7a45de360d0ee47c3b5"
   },
@@ -68,6 +78,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yupi.project.model.vo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -109,7 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1703140266172</updated>
       <workItem from="1703140267297" duration="1142000" />
-      <workItem from="1703141423499" duration="15251000" />
+      <workItem from="1703141423499" duration="30629000" />
     </task>
     <task id="LOCAL-00001" summary="v4">
       <created>1703140919818</created>
@@ -132,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703141499803</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="修改发布/下线根据测试地址来验证接口可用性">
+      <created>1703507965566</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703507965566</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +175,7 @@
     </ignored-roots>
     <MESSAGE value="v4" />
     <MESSAGE value="v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1" />
+    <MESSAGE value="修改发布/下线根据测试地址来验证接口可用性" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改发布/下线根据测试地址来验证接口可用性" />
   </component>
 </project>

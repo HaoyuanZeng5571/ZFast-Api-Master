@@ -6,11 +6,16 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 名称Api
+ * Api
  */
 @RestController
-@RequestMapping("/name")
-public class NameController {
+@RequestMapping("/")
+public class InterfaceController {
+
+    @GetMapping("/name")
+    public String getName(String name) {
+        return "GET 你的名字是" + name;
+    }
 
     @GetMapping("/get")
     public String getNameByGet(String name) {

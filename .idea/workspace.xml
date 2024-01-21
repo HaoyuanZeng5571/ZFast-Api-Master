@@ -4,22 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="修改发布/下线根据测试地址来验证接口可用性">
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/vo/InterfaceInfoVo.java" afterDir="false" />
+    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="添加调用分析功能">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/config/ApiClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/exception/ApiException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/exception/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/exception/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/request/BaseRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/request/CurrencyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/response/ResultResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/service/ApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/service/BaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/service/impl/ApiServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/AnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/AnalysisController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/mapper/UserInterfaceInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/mapper/UserInterfaceInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserInterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserInterfaceInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/service/InnerUserInterfaceInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/service/InnerUserInterfaceInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/NameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/NameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoInvokeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoInvokeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/client/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/client/ApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/NameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/InterfaceController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +32,15 @@
   </component>
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,6 +56,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectId" id="2ZqCXrLvujPHYfIrMkeZmk89cRq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -56,6 +72,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/zenghaoyuan/Desktop/workspace/Api-Platform-BackEnd",
     "node.js.detected.package.eslint": "true",
@@ -63,7 +80,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "add52232c7d0a7a45de360d0ee47c3b5"
   },
   "keyToStringList": {
@@ -90,7 +107,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MyApplication">
+  <component name="RunManager" selected="Spring Boot.ApiInterfaceApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.yupi.apigateway.ApiGatewayApplication" />
@@ -122,7 +139,12 @@
       <option name="presentableId" value="Default" />
       <updated>1703140266172</updated>
       <workItem from="1703140267297" duration="1142000" />
-      <workItem from="1703141423499" duration="30629000" />
+      <workItem from="1703141423499" duration="34322000" />
+      <workItem from="1704441374076" duration="119000" />
+      <workItem from="1704441501568" duration="31000" />
+      <workItem from="1704441539320" duration="4366000" />
+      <workItem from="1705502329369" duration="3371000" />
+      <workItem from="1705841226622" duration="10616000" />
     </task>
     <task id="LOCAL-00001" summary="v4">
       <created>1703140919818</created>
@@ -152,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703507965566</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="添加调用分析功能">
+      <created>1703601531977</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1703601531977</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +205,7 @@
     <MESSAGE value="v4" />
     <MESSAGE value="v1" />
     <MESSAGE value="修改发布/下线根据测试地址来验证接口可用性" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改发布/下线根据测试地址来验证接口可用性" />
+    <MESSAGE value="添加调用分析功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加调用分析功能" />
   </component>
 </project>

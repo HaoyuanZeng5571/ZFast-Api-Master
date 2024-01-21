@@ -7,6 +7,9 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import com.yupi.apiclientsdk.model.User;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,17 +19,15 @@ import static com.yupi.apiclientsdk.utils.SignUtils.genSign;
 /**
  * 封装调用第三方接口的方法
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ApiClient {
-
-    public static final String GATEWAY_HOST = "http://localhost:8090";
 
     private String accessKey;
     private String secretKey;
 
-    public ApiClient(String accessKey, String secretKey) {
-        this.accessKey = accessKey;
-        this.secretKey = secretKey;
-    }
+    public static final String GATEWAY_HOST = "http://localhost:8090";
 
     //使用GET方法从服务器获取名称信息
     public String getNameByGet(String name) {

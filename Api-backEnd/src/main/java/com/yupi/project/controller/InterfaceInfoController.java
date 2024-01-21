@@ -3,7 +3,12 @@ package com.yupi.project.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import com.yupi.apiclientsdk.client.ApiClient;
+import com.yupi.apiclientsdk.model.request.CurrencyRequest;
+import com.yupi.apiclientsdk.model.response.ResultResponse;
+import com.yupi.apiclientsdk.service.ApiService;
 import com.yupi.apicommon.model.entity.InterfaceInfo;
 import com.yupi.apicommon.model.entity.User;
 import com.yupi.project.annotation.AuthCheck;
@@ -18,6 +23,7 @@ import com.yupi.project.model.enums.InterfaceInfoEnum;
 import com.yupi.project.service.InterfaceInfoService;
 import com.yupi.project.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 接口管理
@@ -41,7 +48,10 @@ public class InterfaceInfoController {
     private UserService userService;
 
     @Resource
-    private ApiClient apiClient;
+    private ApiService apiService;
+
+
+    private final Gson gson = new Gson();
 
     // region 增删改查
 
@@ -210,52 +220,16 @@ public class InterfaceInfoController {
     @AuthCheck(mustRole = "admin")  //确保管理员调用
     public BaseResponse<Boolean> onlineInterfaceInfo(@RequestBody IdRequest idRequest, HttpServletRequest request) {
 
-        //如果id为null或者id小于0
-        if (idRequest == null || idRequest.getId() <= 0) {
-            // 抛出业务异常，表示请求参数错误
+        if (ObjectUtils.anyNull(idRequest, idRequest.getId()) || idRequest.getId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        //  1。校验接口是否存在
-        //  获取idRequest对象的id属性值
-        long id = idRequest.getId();
-        // 根据id查询接口信息，判断是否存在
-        InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
-        if (oldInterfaceInfo == null) {
-            //  如果查询结果为null，表示未找到数据
+        Long id = idRequest.getId();
+        InterfaceInfo interfaceInfo = interfaceInfoService.getById(id);
+        if (interfaceInfo == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
-
-        //  2.判断接口是否可以调用
-        String url = oldInterfaceInfo.getUrl();
-        String userName;
-        if ("http://localhost:8123/api/name/user".equals(url)) {
-            // 创建一个User对象
-            com.yupi.apiclientsdk.model.User user = new com.yupi.apiclientsdk.model.User();
-            user.setUsername("test");
-            userName = apiClient.getUserNameByPost(user);
-        }
-        else if ("http://localhost:8123/api/name/get".equals(url)) {
-            userName = apiClient.getNameByGet("test");
-        }
-        else {
-            userName = apiClient.getNameByPost("test");
-        }
-        if (StringUtils.isBlank(userName)) {
-            throw new BusinessException(ErrorCode.SYSTEM_ERROR,"接口验证失败");
-        }
-
-        // 创建一个InterfaceInfo对象
-        InterfaceInfo interfaceInfo = new InterfaceInfo();
-        // 设置InterfaceInfo的id属性为id
-        interfaceInfo.setId(id);
-
-        //  3.修改接口数据库中的状态字段为上线
         interfaceInfo.setStatus(InterfaceInfoEnum.ONLINE.getValue());
-
-        //  调用interfaceInfoService.updateById(interfaceInfo)，传入interfaceInfo对象，并将返回结果赋值给result
-        boolean result = interfaceInfoService.updateById(interfaceInfo);
-        //  返回一个成功的响应，响应中携带result值
-        return ResultUtils.success(result);
+        return ResultUtils.success(interfaceInfoService.updateById(interfaceInfo));
 
     }
 
@@ -271,56 +245,16 @@ public class InterfaceInfoController {
     public BaseResponse<Boolean> offlineInterfaceInfo(@RequestBody IdRequest idRequest,
                                                      HttpServletRequest request) {
 
-        //如果id为null或者id小于0
-        if (idRequest == null || idRequest.getId() <= 0) {
-            // 抛出业务异常，表示请求参数错误
+        if (ObjectUtils.anyNull(idRequest, idRequest.getId()) || idRequest.getId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        //  1。校验接口是否存在
-        //  获取idRequest对象的id属性值
-        long id = idRequest.getId();
-        // 根据id查询接口信息，判断是否存在
-        InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
-        if (oldInterfaceInfo == null) {
-            //  如果查询结果为null，表示为找到数据
+        Long id = idRequest.getId();
+        InterfaceInfo interfaceInfo = interfaceInfoService.getById(id);
+        if (interfaceInfo == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
-
-        //  2.判断接口是否可以调用
-
-        String url = oldInterfaceInfo.getUrl();
-        String userName;
-        if ("http://localhost:8123/api/name/user".equals(url)) {
-            // 创建一个User对象
-            com.yupi.apiclientsdk.model.User user = new com.yupi.apiclientsdk.model.User();
-            user.setUsername("test");
-            userName = apiClient.getUserNameByPost(user);
-        }
-        else if ("http://localhost:8123/api/name/get".equals(url)) {
-            userName = apiClient.getNameByGet("test");
-        }
-        else {
-            userName = apiClient.getNameByPost("test");
-        }
-        //  通过 apiClient.getUserNameByPost(user)方法传入user对象
-        //String userName = apiClient.getUserNameByPost(user);
-        // 如果userName为空或空白字符串
-        if (StringUtils.isBlank(userName)) {
-            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口验证失败");
-        }
-
-        // 创建一个InterfaceInfo对象
-        InterfaceInfo interfaceInfo = new InterfaceInfo();
-        // 设置InterfaceInfo的id属性为id
-        interfaceInfo.setId(id);
-
-        //  3.修改接口数据库中的状态字段为上线
         interfaceInfo.setStatus(InterfaceInfoEnum.OFFLINE.getValue());
-
-        //  调用interfaceInfoService.updateById(interfaceInfo)，传入interfaceInfo对象，并将返回结果赋值给result
-        boolean result = interfaceInfoService.updateById(interfaceInfo);
-        //  返回一个成功的响应，响应中携带result值
-        return ResultUtils.success(result);
+        return ResultUtils.success(interfaceInfoService.updateById(interfaceInfo));
     }
 
     /**
@@ -344,8 +278,6 @@ public class InterfaceInfoController {
         //  1。校验接口是否存在
         //  获取idRequest对象的id属性值
         long id = interfaceInfoInvokeRequest.getId();
-        String userRequestParams = interfaceInfoInvokeRequest.getUserRequestParams();
-        log.info(userRequestParams);
         // 根据id查询接口信息，判断是否存在
         InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
         if (oldInterfaceInfo == null) {
@@ -357,21 +289,39 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR,"接口已关闭");
         }
 
+        // 构建请求参数
+        List<InterfaceInfoInvokeRequest.Field> fieldList = interfaceInfoInvokeRequest.getUserRequestParams();
+        String requestParams = "{}";
+        if (fieldList != null && fieldList.size() > 0) {
+            JsonObject jsonObject = new JsonObject();
+            for (InterfaceInfoInvokeRequest.Field field : fieldList) {
+                jsonObject.addProperty(field.getFieldName(),field.getValue());
+            }
+            requestParams = gson.toJson(jsonObject);
+        }
+        Map<String, Object> params = new Gson().fromJson(requestParams, new TypeToken<Map<String, Object>>() {
+        }.getType());
         // 获取当前登录用户的ak和sk，以用户自己的身份去调用接口
         // 因此不用担心该用户刷接口，因为能知道具体是谁调用了接口，安全
         User loginUser = userService.getLoginUser(request);
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
-        // 创建一个ApiClient对象，并传入ak和sk
-        ApiClient tempApiClient1 = new ApiClient(accessKey, secretKey);
-        // 解析传递过来的参数
-        Gson gson = new Gson();
-        // 将用户请求参数转换为com.yupi.apiclientsdk.model.User对象
-        com.yupi.apiclientsdk.model.User user = gson.fromJson(userRequestParams, com.yupi.apiclientsdk.model.User.class);
-        // 调用sdk中的getUserNameByPost方法，传入用户对象，获取用户名
-        String userNameByPost = tempApiClient1.getUserNameByPost(user);
-        // 返回成功响应，并包含调用结果
-        return ResultUtils.success(userNameByPost);
+        // 调用接口
+        try {
+            // 创建一个ApiClient对象，并传入ak和sk
+            ApiClient apiClient = new ApiClient(accessKey, secretKey);
+            // 动态选择接口
+            CurrencyRequest currencyRequest = new CurrencyRequest();
+            currencyRequest.setMethod(oldInterfaceInfo.getMethod());
+            currencyRequest.setPath(oldInterfaceInfo.getUrl());
+            currencyRequest.setRequestParams(params);
+            // 根据请求方法，请求的路径，及请求的参数调用对应的接口
+            ResultResponse response = apiService.request(apiClient, currencyRequest);
+            return ResultUtils.success(response.getData());
+        }
+        catch (Exception e) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR,e.getMessage());
+        }
     }
 
 }

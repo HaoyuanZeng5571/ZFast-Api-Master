@@ -4,14 +4,12 @@ import com.yupi.apiclientsdk.client.ApiClient;
 import com.yupi.apiclientsdk.service.ApiService;
 import com.yupi.apiclientsdk.service.impl.ApiServiceImpl;
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Data
 @Configuration
-@ConfigurationProperties("qi.api.client")
 @ComponentScan
 public class ApiClientConfig {
     /**

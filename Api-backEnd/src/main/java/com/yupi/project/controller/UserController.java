@@ -1,5 +1,6 @@
 package com.yupi.project.controller;
 
+import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
@@ -8,18 +9,30 @@ import com.yupi.project.common.BaseResponse;
 import com.yupi.project.common.DeleteRequest;
 import com.yupi.project.common.ErrorCode;
 import com.yupi.project.common.ResultUtils;
+import com.yupi.project.config.EmailConfig;
 import com.yupi.project.exception.BusinessException;
 import com.yupi.project.model.dto.user.*;
 import com.yupi.project.model.vo.UserVO;
 import com.yupi.project.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import static com.yupi.project.constant.EmailConstant.*;
+import static com.yupi.project.utils.EmailUtils.buildEmailContent;
 
 
 /**
@@ -27,10 +40,21 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     @Resource
+    private EmailConfig emailConfig;
+
+    @Resource
     private UserService userService;
+
+    @Resource
+    private RedisTemplate<String, Object> redisTemplate;
+
+    @Resource
+    private JavaMailSender javaMailSender;
+
 
     // region 登录相关
 
@@ -45,13 +69,7 @@ public class UserController {
         if (userRegisterRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        String userAccount = userRegisterRequest.getUserAccount();
-        String userPassword = userRegisterRequest.getUserPassword();
-        String checkPassword = userRegisterRequest.getCheckPassword();
-        if (StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)) {
-            return null;
-        }
-        long result = userService.userRegister(userAccount, userPassword, checkPassword);
+        long result = userService.userRegister(userRegisterRequest);
         return ResultUtils.success(result);
     }
 
@@ -67,13 +85,84 @@ public class UserController {
         if (userLoginRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        String userAccount = userLoginRequest.getUserAccount();
-        String userPassword = userLoginRequest.getUserPassword();
-        if (StringUtils.isAnyBlank(userAccount, userPassword)) {
+        User user = userService.userLogin(userLoginRequest, request);
+        return ResultUtils.success(user);
+    }
+
+    /**
+     * 邮箱登陆
+     * @param userEmailLoginRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/email/login")
+    public BaseResponse<User> userEmailLogin(@RequestBody UserEmailLoginRequest userEmailLoginRequest, HttpServletRequest request) {
+        if (userEmailLoginRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        User user = userService.userLogin(userAccount, userPassword, request);
+        User user = userService.userEmailLogin(userEmailLoginRequest, request);
+        redisTemplate.delete(CAPTCHA_CACHE_KEY + userEmailLoginRequest.getEmailAccount());
         return ResultUtils.success(user);
+    }
+
+    /**
+     * 邮箱注册
+     * @param userEmailRegisterRequest
+     * @return
+     */
+    @PostMapping("/email/register")
+    public BaseResponse<Long> userEmailRegister(@RequestBody UserEmailRegisterRequest userEmailRegisterRequest) {
+        if (userEmailRegisterRequest == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        long result = userService.userEmailRegister(userEmailRegisterRequest);
+        redisTemplate.delete(CAPTCHA_CACHE_KEY + userEmailRegisterRequest.getEmailAccount());
+        return ResultUtils.success(result);
+    }
+
+    /**
+     * 获取验证码
+     * @param emailAccount
+     * @return
+     */
+    @GetMapping("/getCaptcha")
+    public BaseResponse<Boolean> getCaptcha(String emailAccount) {
+        // 校验邮箱
+        if (StringUtils.isBlank(emailAccount)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        if (!Pattern.matches(emailPattern, emailAccount)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "不合法的邮箱地址！");
+        }
+        // 生成验证码
+        String captcha = RandomUtil.randomNumbers(6);
+        try {
+            // 发送验证码到指定邮箱
+            sendEmail(emailAccount, captcha);
+            redisTemplate.opsForValue().set(CAPTCHA_CACHE_KEY + emailAccount, captcha, 5, TimeUnit.MINUTES);
+            return ResultUtils.success(true);
+        } catch (Exception e) {
+            log.error("【发送验证码失败】" + e.getMessage());
+            throw new BusinessException(ErrorCode.OPERATION_ERROR, "验证码获取失败");
+        }
+    }
+
+    /**
+     * 发送邮件
+     * @param emailAccount
+     * @param captcha
+     * @throws MessagingException
+     */
+    private void sendEmail(String emailAccount, String captcha) throws MessagingException {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        // 邮箱发送内容
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+        helper.setSubject(EMAIL_SUBJECT);
+        helper.setText(buildEmailContent(EMAIL_HTML_CONTENT_PATH, captcha), true);
+        helper.setTo(emailAccount);
+        helper.setFrom(EMAIL_TITLE + '<' + emailConfig.getEmailFrom() + '>');
+        javaMailSender.send(message);
     }
 
     /**

@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="将SDK调整为根据通用请求进行接口调用">
-      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/params/NameParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/params/WeatherParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/response/NameResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/utils/RequestUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="添加新接口">
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/EmailConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/RedisTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/constant/EmailConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserEmailLoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserEmailRegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/utils/EmailUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/client/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/client/ApiClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/config/ApiClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/config/ApiClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/InterfaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/InterfaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/test/java/com/yupi/project/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/test/java/com/yupi/project/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -66,12 +69,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/zenghaoyuan/Desktop/workspace/Api-Platform-BackEnd",
+    "last_opened_file_path": "/Users/zenghaoyuan/Desktop/workspace/Api-Platform-BackEnd/Api-backEnd/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "add52232c7d0a7a45de360d0ee47c3b5"
   },
@@ -86,6 +90,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Api-backEnd/src/main/resources" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -141,7 +146,7 @@
       <workItem from="1704441501568" duration="31000" />
       <workItem from="1704441539320" duration="4366000" />
       <workItem from="1705502329369" duration="3371000" />
-      <workItem from="1705841226622" duration="30009000" />
+      <workItem from="1705841226622" duration="50657000" />
     </task>
     <task id="LOCAL-00001" summary="v4">
       <created>1703140919818</created>
@@ -185,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705858562648</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="添加新接口">
+      <created>1705928192672</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705928192672</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +253,8 @@
     <MESSAGE value="修改发布/下线根据测试地址来验证接口可用性" />
     <MESSAGE value="添加调用分析功能" />
     <MESSAGE value="将SDK调整为根据通用请求进行接口调用" />
-    <option name="LAST_COMMIT_MESSAGE" value="将SDK调整为根据通用请求进行接口调用" />
+    <MESSAGE value="添加新接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加新接口" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

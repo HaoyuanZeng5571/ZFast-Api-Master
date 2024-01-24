@@ -3,6 +3,10 @@ package com.yupi.project.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yupi.apicommon.model.entity.User;
+import com.yupi.project.model.dto.user.UserEmailLoginRequest;
+import com.yupi.project.model.dto.user.UserEmailRegisterRequest;
+import com.yupi.project.model.dto.user.UserLoginRequest;
+import com.yupi.project.model.dto.user.UserRegisterRequest;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,14 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 public interface UserService extends IService<User> {
 
     /**
-     * 用户注册
-     *
-     * @param userAccount   用户账户
-     * @param userPassword  用户密码
-     * @param checkPassword 校验密码
-     * @return 新用户 id
+     * 账号密码注册
+     * @param userRegisterRequest
+     * @return
      */
-    long userRegister(String userAccount, String userPassword, String checkPassword);
+    long userRegister(UserRegisterRequest userRegisterRequest);
 
     /**
      * 用户登录
@@ -29,7 +30,22 @@ public interface UserService extends IService<User> {
      * @param request
      * @return 脱敏后的用户信息
      */
-    User userLogin(String userAccount, String userPassword, HttpServletRequest request);
+    User userLogin(UserLoginRequest userLoginRequest, HttpServletRequest request);
+
+    /**
+     * 邮箱登录
+     * @param userEmailLoginRequest
+     * @param request
+     * @return
+     */
+    User userEmailLogin(UserEmailLoginRequest userEmailLoginRequest, HttpServletRequest request);
+
+    /**
+     * 邮箱注册
+     * @param userEmailRegisterRequest
+     * @return
+     */
+    long userEmailRegister(UserEmailRegisterRequest userEmailRegisterRequest);
 
     /**
      * 获取当前登录用户

@@ -1,5 +1,6 @@
 package com.yupi.project.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yupi.apicommon.model.entity.InterfaceInfo;
 import com.yupi.project.common.ErrorCode;
@@ -33,6 +34,15 @@ public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, I
         if (StringUtils.isNotBlank(name) && name.length() > 50) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "名称过长");
         }
+    }
+
+    @Override
+    public boolean invokeCount(long interfaceInfoId) {
+        LambdaUpdateWrapper<InterfaceInfo> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.eq(InterfaceInfo::getId, interfaceInfoId);
+        updateWrapper.setSql("totalInvokes = totalInvokes + 1");
+        boolean update = this.update(updateWrapper);
+        return update;
     }
 
 }

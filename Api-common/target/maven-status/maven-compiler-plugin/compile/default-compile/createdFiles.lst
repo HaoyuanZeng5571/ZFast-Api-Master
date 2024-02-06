@@ -1,12 +1,13 @@
-com/yupi/apicommon/model/entity/User.class
 com/yupi/apicommon/model/enums/PostReviewStatusEnum.class
+com/yupi/apicommon/model/dto/RequestParamsField.class
 com/yupi/apicommon/model/enums/PostGenderEnum.class
 com/yupi/apicommon/service/InnerUserInterfaceInfoService.class
 com/yupi/apicommon/service/InnerInterfaceInfoService.class
 com/yupi/apicommon/model/entity/Post.class
+com/yupi/apicommon/model/vo/UserVO.class
+com/yupi/apicommon/model/entity/UserInterfaceInfo.class
+com/yupi/apicommon/model/entity/User.class
 com/yupi/apicommon/model/entity/InterfaceInfo.class
 com/yupi/apicommon/model/enums/InterfaceInfoEnum.class
 com/yupi/apicommon/model/vo/PostVO.class
-com/yupi/apicommon/model/vo/UserVO.class
-com/yupi/apicommon/model/entity/UserInterfaceInfo.class
 com/yupi/apicommon/service/InnerUserService.class

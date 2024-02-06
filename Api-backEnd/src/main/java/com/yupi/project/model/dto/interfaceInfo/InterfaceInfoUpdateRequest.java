@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 更新请求
@@ -38,7 +39,12 @@ public class InterfaceInfoUpdateRequest implements Serializable {
     /**
      * 请求参数
      */
-    private String requestParams;
+    private List<RequestParamsField> requestParams;
+
+    /**
+     * 接口响应参数
+     */
+    private List<ResponseParamsField> responseParams;
 
     /**
      * 请求头

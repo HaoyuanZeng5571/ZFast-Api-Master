@@ -34,9 +34,6 @@ public class UserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoM
                 throw new BusinessException(ErrorCode.PARAMS_ERROR,"接口或用户不存在");
             }
         }
-        if (userInterfaceInfo.getLeftNum() < 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "剩余次数不能小于0");
-        }
     }
 
     @Override
@@ -57,19 +54,6 @@ public class UserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoM
         return this.update(updateWrapper);
     }
 
-    @Override
-    public int leftInvokeNum(long interfaceInfoId, long userId) {
-
-        // 判断
-        if (interfaceInfoId <= 0 || userId <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        QueryWrapper<UserInterfaceInfo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("interfaceInfoId",interfaceInfoId);
-        queryWrapper.eq("userId",userId);
-        UserInterfaceInfo userInterfaceInfo = userInterfaceInfoMapper.selectOne(queryWrapper);
-        return userInterfaceInfo.getLeftNum();
-    }
 }
 
 

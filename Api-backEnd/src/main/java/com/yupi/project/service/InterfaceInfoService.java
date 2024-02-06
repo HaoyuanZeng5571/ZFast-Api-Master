@@ -12,5 +12,10 @@ import com.yupi.apicommon.model.entity.InterfaceInfo;
 public interface InterfaceInfoService extends IService<InterfaceInfo> {
     void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add);
 
-
+    /**
+     * 调用接口统计
+     * @param interfaceInfoId
+     * @return
+     */
+    boolean invokeCount(long interfaceInfoId);
 }

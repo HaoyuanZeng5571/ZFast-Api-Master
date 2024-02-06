@@ -29,12 +29,16 @@ public class InnerInterfaceInfoServiceImpl implements InnerInterfaceInfoService 
         if (StringUtils.isAnyBlank(url,method)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
+        // 如果带参数，去除第一个？和之后的参数
+        if (url.contains("?")) {
+            url = url.substring(0, url.indexOf("?"));
+        }
         // 创建查询条件包装器
         QueryWrapper<InterfaceInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("url",url);
         queryWrapper.eq("method",method);
-
         // 使用 interfaceInfoMapper 的 selectOne 方法查询接口信息
-        return interfaceInfoMapper.selectOne(queryWrapper);
+        InterfaceInfo interfaceInfo = interfaceInfoMapper.selectOne(queryWrapper);
+        return interfaceInfo;
     }
 }

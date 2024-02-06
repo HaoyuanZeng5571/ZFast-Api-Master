@@ -1,12 +1,16 @@
 package com.yupi.apigateway;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.yupi.apiclientsdk.utils.SignUtils;
+import com.yupi.apicommon.model.dto.RequestParamsField;
 import com.yupi.apicommon.model.entity.InterfaceInfo;
 import com.yupi.apicommon.model.entity.User;
 import com.yupi.apicommon.service.InnerInterfaceInfoService;
 import com.yupi.apicommon.service.InnerUserInterfaceInfoService;
 import com.yupi.apicommon.service.InnerUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.reactivestreams.Publisher;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -21,6 +25,7 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.http.server.reactive.ServerHttpResponseDecorator;
 import org.springframework.stereotype.Component;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -29,6 +34,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 全局过滤
@@ -50,6 +56,8 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
 
     private static final String INTERFACE_HOST = "http://localhost:8123";
 
+    private static final long FIVE_MINUTES = 60 * 5L;
+
     /**
      *
      * @param exchange 所有的请求信息、响应信息，响应体，请求体都能从这里拿到
@@ -59,18 +67,17 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 
-        // 1. 用户发送请求到api网关
-        // 2. 请求日志
+        // 1. 请求日志
         ServerHttpRequest request = exchange.getRequest();
-        String path = INTERFACE_HOST + request.getPath().value();
-        String method = request.getMethod().toString();
         log.info("请求唯一标识：" + request.getId());
-        log.info("请求路径：" + path);
-        log.info("请求方法：" + method);
+        log.info("请求路径：" + request.getPath());
+        log.info("请求方法：" + request.getMethod());
         log.info("请求参数：" + request.getQueryParams());
         String sourceAddress = request.getLocalAddress().getHostString();
         log.info("请求来源地址：" + sourceAddress);
         log.info("请求来源地址：" + request.getRemoteAddress());
+        log.info("url: "+ request.getURI());
+
 
         // 拿到响应对象
         ServerHttpResponse response = exchange.getResponse();
@@ -89,6 +96,12 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         String timestamp = headers.getFirst("timestamp");
         String sign = headers.getFirst("sign");
         String body = headers.getFirst("body");
+
+        // 时间和当前时间不能超过5分钟
+        long currentTime = System.currentTimeMillis() / 1000;
+        if ((currentTime - Long.parseLong(timestamp)) >= FIVE_MINUTES) {
+            return handleNoAuth(response);
+        }
         // 验证身份合法性
         User invokeUser = null;
         try {
@@ -105,12 +118,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         if (Long.parseLong(nonce) > 10000L) {
             return handleNoAuth(response);
         }
-        // 时间和当前时间不能超过5分钟
-        long currentTime = System.currentTimeMillis() / 1000;
-        final long FIVE_MINUTES = 60 * 5L;
-        if ((currentTime - Long.parseLong(timestamp)) >= FIVE_MINUTES) {
-            return handleNoAuth(response);
-        }
+
 
         // 从数据库中查询sk
         // 从获取到的ak对请求体中获取用户的sk
@@ -126,13 +134,15 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         // 5. 请求的模拟接口是否存在
         // 初始化一个 InterfaceInfo 对象，用于存储查询结果
         InterfaceInfo interfaceInfo = null;
+        String method = Objects.requireNonNull(request.getMethod()).toString();
+        String uri = request.getURI().toString().trim();
         try {
             // 从内部接口信息服务获取指定路径和方法的接口信息
-            interfaceInfo = innerInterfaceInfoService.getInterfaceInfo(path,method);
+            interfaceInfo = innerInterfaceInfoService.getInterfaceInfo(uri,method);
         }
         catch (Exception e) {
             // 如果获取接口信息时出现异常，记录错误日志
-            log.error("getInterfaceInfo errot", e);
+            log.error("getInterfaceInfo error", e);
         }
         // 检查是否成功获取到接口信息，
         if (interfaceInfo == null) {
@@ -140,12 +150,27 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
             return handleNoAuth(response);
         }
 
-        // 6.验证用户是否还有请求次数
-        int leftInvokeNum = innerUserInterfaceInfoService.leftInvokeNum(interfaceInfo.getId(), invokeUser.getId());
-        if (leftInvokeNum <= 0) {
-            return handleNoAuth(response);
-        }
+//        // 6.验证用户是否还有请求次数
+//        int leftInvokeNum = innerUserInterfaceInfoService.leftInvokeNum(interfaceInfo.getId(), invokeUser.getId());
+//        if (leftInvokeNum <= 0) {
+//            return handleNoAuth(response);
+//        }
+        // 进行参数校验
+        MultiValueMap<String, String> queryParams = request.getQueryParams();
+        String requestParams = interfaceInfo.getRequestParams();
+        List<RequestParamsField> list = new Gson().fromJson(requestParams, new TypeToken<List<RequestParamsField>>() {
+        }.getType());
+        if ("GET".equals(method)) {
+            log.info("GET 请求参数是：" + queryParams);
+            for (RequestParamsField requestParamsField : list) {
+                if ("是".equals(requestParamsField.getRequired())) {
+                    if (StringUtils.isBlank(queryParams.getFirst(requestParamsField.getFieldName())) || !queryParams.containsKey(requestParamsField.getFieldName())) {
+                        return handleNoAuth(response);
+                    }
+                }
+            }
 
+        }
         // 7.请求转发，调用模拟接口 + 响应日志
          return handleResponse(exchange,chain,interfaceInfo.getId(),invokeUser.getId());
     }

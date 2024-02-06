@@ -31,8 +31,8 @@ public class InnerUserServiceImpl implements InnerUserService {
         // 创建查询条件包装器
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("accessKey",accessKey);
-
+        User user = userMapper.selectOne(queryWrapper);
         // 使用 UserMapper 的 selectOne 方法查询用户信息
-        return userMapper.selectOne(queryWrapper);
+        return user;
     }
 }

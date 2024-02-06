@@ -4,21 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="添加新接口">
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/EmailConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/RedisTemplateConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/constant/EmailConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserEmailLoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserEmailRegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/utils/EmailUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/email.html" afterDir="false" />
+    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="重构用户管理，增加邮箱注册登陆（redis）">
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/RequestParamsField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/ResponseParamsField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/dto/RequestParamsField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/sql/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/sql/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoAddRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoAddRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoInvokeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoInvokeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoQueryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoQueryRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserRegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserRegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/InterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/InterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/InterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/InterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/test/java/com/yupi/project/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/test/java/com/yupi/project/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/InterfaceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/InterfaceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/UserInterfaceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/UserInterfaceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/model/entity/InterfaceInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/model/entity/InterfaceInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/model/entity/UserInterfaceInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/model/entity/UserInterfaceInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/service/InnerUserInterfaceInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/service/InnerUserInterfaceInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/src/test/java/com/yupi/apiinterface/ApiInterfaceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/test/java/com/yupi/apiinterface/ApiInterfaceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +110,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yupi.apicommon.model.dto" />
       <recent name="com.yupi.project.model.vo" />
     </key>
   </component>
@@ -104,7 +121,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApiInterfaceApplication">
+  <component name="RunManager" selected="Spring Boot.MyApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.yupi.apigateway.ApiGatewayApplication" />
@@ -128,8 +145,8 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.MyApplication" />
-      <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.ApiInterfaceApplication" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -146,7 +163,7 @@
       <workItem from="1704441501568" duration="31000" />
       <workItem from="1704441539320" duration="4366000" />
       <workItem from="1705502329369" duration="3371000" />
-      <workItem from="1705841226622" duration="50657000" />
+      <workItem from="1705841226622" duration="111677000" />
     </task>
     <task id="LOCAL-00001" summary="v4">
       <created>1703140919818</created>
@@ -197,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705928192672</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="重构用户管理，增加邮箱注册登陆（redis）">
+      <created>1706105907444</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706105907444</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +278,8 @@
     <MESSAGE value="添加调用分析功能" />
     <MESSAGE value="将SDK调整为根据通用请求进行接口调用" />
     <MESSAGE value="添加新接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加新接口" />
+    <MESSAGE value="重构用户管理，增加邮箱注册登陆（redis）" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构用户管理，增加邮箱注册登陆（redis）" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -263,6 +288,26 @@
           <properties class="org.springframework.data.redis.serializer.SerializationException" package="org.springframework.data.redis.serializer" />
           <option name="timeStamp" value="9" />
         </breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$PROJECT_DIR$/../maven/repository/cn/hutool/hutool-all/5.8.16/hutool-all-5.8.16-sources.jar!/cn/hutool/http/HttpRequest.java</url>
+          <line>1171</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

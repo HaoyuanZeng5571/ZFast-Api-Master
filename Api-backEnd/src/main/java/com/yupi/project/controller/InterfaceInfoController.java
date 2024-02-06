@@ -1,6 +1,8 @@
 package com.yupi.project.controller;
 
+import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -15,10 +17,7 @@ import com.yupi.project.annotation.AuthCheck;
 import com.yupi.project.common.*;
 import com.yupi.project.constant.CommonConstant;
 import com.yupi.project.exception.BusinessException;
-import com.yupi.project.model.dto.interfaceInfo.InterfaceInfoAddRequest;
-import com.yupi.project.model.dto.interfaceInfo.InterfaceInfoInvokeRequest;
-import com.yupi.project.model.dto.interfaceInfo.InterfaceInfoQueryRequest;
-import com.yupi.project.model.dto.interfaceInfo.InterfaceInfoUpdateRequest;
+import com.yupi.project.model.dto.interfaceInfo.*;
 import com.yupi.project.model.enums.InterfaceInfoEnum;
 import com.yupi.project.service.InterfaceInfoService;
 import com.yupi.project.service.UserService;
@@ -32,6 +31,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 接口管理
@@ -56,7 +56,7 @@ public class InterfaceInfoController {
     // region 增删改查
 
     /**
-     * 创建
+     * 添加接口信息
      *
      * @param interfaceInfoAddRequest
      * @param request
@@ -68,6 +68,18 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         InterfaceInfo interfaceInfo = new InterfaceInfo();
+        // 获取请求参数
+        if (CollectionUtils.isNotEmpty(interfaceInfoAddRequest.getRequestParams())) {
+            List<RequestParamsField> requestParamsFields = interfaceInfoAddRequest.getRequestParams().stream().filter(field -> StringUtils.isNotBlank(field.getFieldName())).collect(Collectors.toList());
+            String requestParams = JSONUtil.toJsonStr(requestParamsFields);
+            interfaceInfo.setRequestParams(requestParams);
+        }
+        // 获取响应参数
+        if (CollectionUtils.isNotEmpty(interfaceInfoAddRequest.getResponseParams())) {
+            List<ResponseParamsField> responseParamsFields = interfaceInfoAddRequest.getResponseParams().stream().filter(field -> StringUtils.isNotBlank(field.getFieldName())).collect(Collectors.toList());
+            String responseParams = JSONUtil.toJsonStr(responseParamsFields);
+            interfaceInfo.setResponseParams(responseParams);
+        }
         BeanUtils.copyProperties(interfaceInfoAddRequest, interfaceInfo);
         // 校验
         interfaceInfoService.validInterfaceInfo(interfaceInfo, true);
@@ -82,7 +94,7 @@ public class InterfaceInfoController {
     }
 
     /**
-     * 删除
+     * 删除接口信息
      *
      * @param deleteRequest
      * @param request
@@ -109,7 +121,7 @@ public class InterfaceInfoController {
     }
 
     /**
-     * 更新
+     * 更新接口信息
      *
      * @param interfaceInfoUpdateRequest
      * @param request
@@ -122,6 +134,16 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         InterfaceInfo interfaceInfo = new InterfaceInfo();
+        if (CollectionUtils.isNotEmpty(interfaceInfoUpdateRequest.getRequestParams())) {
+            List<RequestParamsField> requestParamsFields = interfaceInfoUpdateRequest.getRequestParams().stream().filter(field -> StringUtils.isNotBlank(field.getFieldName())).collect(Collectors.toList());
+            String requestParams = JSONUtil.toJsonStr(requestParamsFields);
+            interfaceInfo.setRequestParams(requestParams);
+        }
+        if (CollectionUtils.isNotEmpty(interfaceInfoUpdateRequest.getResponseParams())) {
+            List<ResponseParamsField> responseParamsFields = interfaceInfoUpdateRequest.getResponseParams().stream().filter(field -> StringUtils.isNotBlank(field.getFieldName())).collect(Collectors.toList());
+            String responseParams = JSONUtil.toJsonStr(responseParamsFields);
+            interfaceInfo.setResponseParams(responseParams);
+        }
         BeanUtils.copyProperties(interfaceInfoUpdateRequest, interfaceInfo);
         // 参数校验
         interfaceInfoService.validInterfaceInfo(interfaceInfo, false);
@@ -290,7 +312,7 @@ public class InterfaceInfoController {
         }
 
         // 构建请求参数
-        List<InterfaceInfoInvokeRequest.Field> fieldList = interfaceInfoInvokeRequest.getUserRequestParams();
+        List<InterfaceInfoInvokeRequest.Field> fieldList = interfaceInfoInvokeRequest.getRequestParams();
         String requestParams = "{}";
         if (fieldList != null && fieldList.size() > 0) {
             JsonObject jsonObject = new JsonObject();

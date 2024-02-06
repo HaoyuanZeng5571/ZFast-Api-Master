@@ -57,9 +57,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         String userAccount = userRegisterRequest.getUserAccount();
         String userPassword = userRegisterRequest.getUserPassword();
         String checkPassword = userRegisterRequest.getCheckPassword();
+        String userName = userRegisterRequest.getUserName();
         // 1. 校验
         if (StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "参数为空");
+        }
+        // 验证username的长度
+        if (userName.length() > 40) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户名过长！");
         }
         if (userAccount.length() < 4) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户账号过短");
@@ -88,6 +93,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             // 4. 插入数据
             User user = new User();
             user.setUserAccount(userAccount);
+            user.setUserName(userName);
             user.setUserPassword(encryptPassword);
             user.setAccessKey(accessKey);
             user.setSecretKey(secretKey);
@@ -197,7 +203,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     }
 
     /**
-     * 用户邮箱登陆
+     * 用户邮箱注册
      * @param userEmailLoginRequest
      * @param request
      * @return

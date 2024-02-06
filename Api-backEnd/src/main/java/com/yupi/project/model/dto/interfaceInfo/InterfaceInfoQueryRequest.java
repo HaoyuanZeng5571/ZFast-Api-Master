@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 查询请求
@@ -41,6 +42,11 @@ public class InterfaceInfoQueryRequest extends PageRequest implements Serializab
      * 响应头
      */
     private String responseHeader;
+
+    /**
+     * 接口响应参数
+     */
+    private List<ResponseParamsField> responseParams;
 
     /**
      * 接口状态（0-关闭，1-开启）

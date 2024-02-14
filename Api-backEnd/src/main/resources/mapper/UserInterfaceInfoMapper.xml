@@ -8,8 +8,7 @@
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="userId" column="userId" jdbcType="BIGINT"/>
             <result property="interfaceInfoId" column="interfaceInfoId" jdbcType="BIGINT"/>
-            <result property="totalNum" column="totalNum" jdbcType="INTEGER"/>
-            <result property="leftNum" column="leftNum" jdbcType="INTEGER"/>
+            <result property="totalInvokes" column="totalInvokes" jdbcType="INTEGER"/>
             <result property="status" column="status" jdbcType="INTEGER"/>
             <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
@@ -22,8 +21,8 @@
         createTime,updateTime,isDelete
     </sql>
     <select id="listTopInvokeInterfaceInfo" resultType="com.zhy.apicommon.model.entity.UserInterfaceInfo">
-        select interfaceInfoId, sum(totalNum) as totalNum from user_interface_info
+        select interfaceInfoId, sum(totalInvokes) as totalInvokes from user_interface_info
                                                           group by interfaceInfoId
-                                                          order by totalNum desc limit #{limit};
+                                                          order by totalInvokes desc limit #{limit};
     </select>
 </mapper>

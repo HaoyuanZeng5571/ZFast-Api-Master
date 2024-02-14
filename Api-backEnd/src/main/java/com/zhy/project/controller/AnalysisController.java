@@ -40,7 +40,7 @@ public class AnalysisController {
     @GetMapping("/top/interface/invoke")
     @AuthCheck(mustRole = "admin")
     public BaseResponse<List<InterfaceInfoVo>> listTopInvokeInterfaceInfo() {
-        // 查询调用做多的接口信息列表
+        // 查询调用最多的接口信息列表
         List<UserInterfaceInfo> userInterfaceInfoList = userInterfaceInfoMapper.listTopInvokeInterfaceInfo(3);
         // 将接口信息按照接口ID分组，便于关联查询
         Map<Long, List<UserInterfaceInfo>> interfaceInfoIdObjMap = userInterfaceInfoList.stream().

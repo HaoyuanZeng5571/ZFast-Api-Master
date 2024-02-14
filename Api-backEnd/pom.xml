@@ -9,7 +9,7 @@
         <version>2.7.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.yupi</groupId>
+    <groupId>com.zhy</groupId>
     <artifactId>Api-backEnd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Api-backEnd</name>
@@ -23,7 +23,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.yupi</groupId>
+            <groupId>com.zhy</groupId>
             <artifactId>Api-common</artifactId>
             <version>0.0.1</version>
         </dependency>
@@ -101,7 +101,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.yupi</groupId>
+            <groupId>com.zhy</groupId>
             <artifactId>Api-client-sdk</artifactId>
             <version>0.0.1</version>
         </dependency>

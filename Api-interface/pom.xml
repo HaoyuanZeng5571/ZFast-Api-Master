@@ -8,7 +8,7 @@
 		<version>2.7.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.yupi</groupId>
+	<groupId>com.zhy</groupId>
 	<artifactId>Api-interface</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Api-interface</name>
@@ -44,7 +44,7 @@
 			<version>5.8.16</version>
 		</dependency>
 		<dependency>
-			<groupId>com.yupi</groupId>
+			<groupId>com.zhy</groupId>
 			<artifactId>Api-client-sdk</artifactId>
 			<version>0.0.1</version>
 		</dependency>
@@ -53,7 +53,7 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>

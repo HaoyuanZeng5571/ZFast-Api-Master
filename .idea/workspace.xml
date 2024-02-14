@@ -4,37 +4,128 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="重构用户管理，增加邮箱注册登陆（redis）">
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/RequestParamsField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/ResponseParamsField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/dto/RequestParamsField.java" afterDir="false" />
+    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="重构网关服务，添加参数校验功能">
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/config/JsonConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/model/params/WeatherParams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/ApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/impl/ApiServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/utils/SignUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/zhy/apiinterface/exception/BusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/zhy/apiinterface/exception/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/zhy/apiinterface/utils/RequestUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/zhy/apiinterface/utils/ResponseUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/sql/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/sql/ddl.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoAddRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoAddRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoInvokeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoInvokeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoQueryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoQueryRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoUpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserRegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserRegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/InterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/InterfaceInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/InterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/InterfaceInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerInterfaceInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/InterfaceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/InterfaceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/UserInterfaceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/UserInterfaceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/annotation/AuthCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/annotation/AuthCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/aop/AuthInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/aop/AuthInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/aop/LogInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/aop/LogInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/common/BaseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/common/BaseResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/common/DeleteRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/common/DeleteRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/common/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/common/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/common/IdRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/common/IdRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/common/PageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/common/PageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/common/ResultUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/common/ResultUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/EmailConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/config/EmailConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/Knife4jConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/config/Knife4jConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/MyBatisPlusConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/config/MyBatisPlusConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/config/RedisTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/config/RedisTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/constant/CommonConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/constant/CommonConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/constant/EmailConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/constant/EmailConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/constant/UserConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/constant/UserConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/AnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/controller/AnalysisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/controller/InterfaceInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/controller/UserInterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/controller/UserInterfaceInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/exception/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/exception/BusinessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/mapper/InterfaceInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/mapper/InterfaceInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/mapper/UserInterfaceInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/mapper/UserInterfaceInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoAddRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/interfaceInfo/InterfaceInfoAddRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoInvokeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/interfaceInfo/InterfaceInfoInvokeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoQueryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/interfaceInfo/InterfaceInfoQueryRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/InterfaceInfoUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/interfaceInfo/InterfaceInfoUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/RequestParamsField.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/interfaceInfo/RequestParamsField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/interfaceInfo/ResponseParamsField.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/interfaceInfo/ResponseParamsField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserAddRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/user/UserAddRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserEmailLoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/user/UserEmailLoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserEmailRegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/user/UserEmailRegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserLoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/user/UserLoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserQueryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/user/UserQueryRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserRegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/user/UserRegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/user/UserUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/user/UserUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoAddRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/userinterfaceinfo/UserInterfaceInfoAddRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoQueryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/userinterfaceinfo/UserInterfaceInfoQueryRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/dto/userinterfaceinfo/UserInterfaceInfoUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/enums/InterfaceInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/enums/InterfaceInfoEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/vo/InterfaceInfoVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/vo/InterfaceInfoVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/model/vo/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/model/vo/UserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/provider/DemoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/project/provider/DemoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/provider/DemoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/provider/DemoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/InterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/InterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/UserInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/InterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/impl/InterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/impl/UserInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/impl/inner/InnerInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/impl/inner/InnerUserInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/service/impl/inner/InnerUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/service/impl/inner/InnerUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/yupi/project/utils/EmailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/utils/EmailUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/InterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/InterfaceInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserInterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserInterfaceInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/test/java/com/yupi/project/service/UserInterfaceInfoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/test/java/com/zhy/project/service/UserInterfaceInfoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/test/java/com/yupi/project/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/test/java/com/zhy/project/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/client/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/client/ApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/config/ApiClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/config/ApiClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/exception/ApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/exception/ApiException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/exception/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/exception/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/params/NameParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/model/params/NameParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/request/BaseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/model/request/BaseRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/request/CurrencyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/model/request/CurrencyRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/response/NameResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/model/response/NameResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/model/response/ResultResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/model/response/ResultResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/service/ApiService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/service/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/BaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/service/impl/ApiServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/yupi/apiclientsdk/utils/SignUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/resources/META-INF/spring.factories" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/test/java/com/yupi/apiclientsdk/ApiClientSdkApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/test/java/com/zhy/apiclientsdk/ApiClientSdkApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/dto/RequestParamsField.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/dto/RequestParamsField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/InterfaceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/entity/InterfaceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/entity/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/entity/UserInterfaceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/entity/UserInterfaceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/enums/InterfaceInfoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/enums/InterfaceInfoEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/enums/PostGenderEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/enums/PostGenderEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/enums/PostReviewStatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/enums/PostReviewStatusEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/vo/PostVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/vo/PostVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/model/vo/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/model/vo/UserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/service/InnerInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/service/InnerUserInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/src/main/java/com/yupi/apicommon/service/InnerUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/src/main/java/com/zhy/apicommon/service/InnerUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/model/entity/InterfaceInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/model/entity/InterfaceInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/model/entity/UserInterfaceInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/model/entity/UserInterfaceInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/service/InnerUserInterfaceInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/classes/com/yupi/apicommon/service/InnerUserInterfaceInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-interface/src/test/java/com/yupi/apiinterface/ApiInterfaceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/test/java/com/yupi/apiinterface/ApiInterfaceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/ApiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/project/provider/DemoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/provider/DemoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/src/test/java/com/yupi/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/test/java/com/zhy/apigateway/ApiGatewayApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/ApiInterfaceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/zhy/apiinterface/ApiInterfaceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/controller/InterfaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/main/java/com/zhy/apiinterface/controller/InterfaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/src/main/java/com/yupi/apiinterface/utils/RequestUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/src/test/java/com/yupi/apiinterface/ApiInterfaceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/src/test/java/com/zhy/apiinterface/ApiInterfaceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,32 +166,32 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/zenghaoyuan/Desktop/workspace/Api-Platform-BackEnd/Api-backEnd/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "add52232c7d0a7a45de360d0ee47c3b5"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zenghaoyuan/Desktop/workspace/Api-Platform-BackEnd/Api-backEnd/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;add52232c7d0a7a45de360d0ee47c3b5&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -110,6 +201,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yupi.apiinterface.exception" />
       <recent name="com.yupi.apicommon.model.dto" />
       <recent name="com.yupi.project.model.vo" />
     </key>
@@ -121,33 +213,44 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MyApplication">
+  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Api-gateway" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yupi.apigateway.ApiGatewayApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zhy.apigateway.ApiGatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="ApiInterfaceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Api-interface" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yupi.apiinterface.ApiInterfaceApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zhy.apiinterface.ApiInterfaceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="MyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="Api-backEnd" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yupi.project.MyApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zhy.project.MyApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhy.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.MyApplication" />
       <item itemvalue="Spring Boot.ApiInterfaceApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
+      <item itemvalue="Spring Boot.MyApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.MyApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -163,7 +266,8 @@
       <workItem from="1704441501568" duration="31000" />
       <workItem from="1704441539320" duration="4366000" />
       <workItem from="1705502329369" duration="3371000" />
-      <workItem from="1705841226622" duration="111677000" />
+      <workItem from="1705841226622" duration="117778000" />
+      <workItem from="1707274188719" duration="50756000" />
     </task>
     <task id="LOCAL-00001" summary="v4">
       <created>1703140919818</created>
@@ -221,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706105907444</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="重构网关服务，添加参数校验功能">
+      <created>1707187027608</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707187027608</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +390,8 @@
     <MESSAGE value="将SDK调整为根据通用请求进行接口调用" />
     <MESSAGE value="添加新接口" />
     <MESSAGE value="重构用户管理，增加邮箱注册登陆（redis）" />
-    <option name="LAST_COMMIT_MESSAGE" value="重构用户管理，增加邮箱注册登陆（redis）" />
+    <MESSAGE value="重构网关服务，添加参数校验功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构网关服务，添加参数校验功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -289,24 +401,59 @@
           <option name="timeStamp" value="9" />
         </breakpoint>
         <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
+          <line>164</line>
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
           <url>jar://$PROJECT_DIR$/../maven/repository/cn/hutool/hutool-all/5.8.16/hutool-all-5.8.16-sources.jar!/cn/hutool/http/HttpRequest.java</url>
-          <line>1171</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java</url>
-          <line>153</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/yupi/apigateway/CustomGlobalFilter.java</url>
           <line>137</line>
-          <option name="timeStamp" value="84" />
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$PROJECT_DIR$/../maven/repository/cn/hutool/hutool-all/5.8.16/hutool-all-5.8.16-sources.jar!/cn/hutool/http/HttpBase.java</url>
+          <line>214</line>
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/BaseService.java</url>
+          <line>201</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/BaseService.java</url>
+          <line>197</line>
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-interface/src/main/java/com/zhy/apiinterface/controller/InterfaceController.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Api-interface/src/main/java/com/zhy/apiinterface/utils/ResponseUtils.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="162" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

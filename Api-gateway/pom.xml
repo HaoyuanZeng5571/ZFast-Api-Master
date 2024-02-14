@@ -8,7 +8,7 @@
 		<version>2.7.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.yupi</groupId>
+	<groupId>com.zhy</groupId>
 	<artifactId>Api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Api-gateway</name>
@@ -40,18 +40,18 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.yupi</groupId>
+			<groupId>com.zhy</groupId>
 			<artifactId>Api-client-sdk</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.yupi</groupId>
+			<groupId>com.zhy</groupId>
 			<artifactId>Api-client-sdk</artifactId>
 			<version>0.0.1</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.yupi</groupId>
+			<groupId>com.zhy</groupId>
 			<artifactId>Api-common</artifactId>
 			<version>0.0.1</version>
 		</dependency>

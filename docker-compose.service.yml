@@ -1,0 +1,38 @@
+version: '3'
+services:
+  api-backend:
+    container_name: api-backend
+    build:
+      context: ./Api-backEnd
+      dockerfile: Dockerfile
+    ports:
+      - "8101:8101"
+    networks:
+      - mynetwork
+
+  api-interface:
+    container_name: api-interface
+    build:
+      context: ./Api-interface
+      dockerfile: Dockerfile
+    ports:
+      - "8123:8123"
+    networks:
+      - mynetwork
+
+  api-gateway:
+    container_name: api-gateway
+    build:
+      context: ./Api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    networks:
+      - mynetwork
+    depends_on:
+      - api-backend
+
+
+# 网络，不定义的话就是默认网络
+networks:
+  mynetwork:

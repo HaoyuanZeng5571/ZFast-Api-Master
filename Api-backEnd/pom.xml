@@ -4,19 +4,16 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.zhy</groupId>
+        <artifactId>ZFast-api</artifactId>
+        <version>0.0.1</version>
     </parent>
-    <groupId>com.zhy</groupId>
+
     <artifactId>Api-backEnd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Api-backEnd</name>
-    <description>Api开放平台项目</description>
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <description>Api-backEnd</description>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -25,7 +22,6 @@
         <dependency>
             <groupId>com.zhy</groupId>
             <artifactId>Api-common</artifactId>
-            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -34,12 +30,10 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.2.2</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -103,7 +97,6 @@
         <dependency>
             <groupId>com.zhy</groupId>
             <artifactId>Api-client-sdk</artifactId>
-            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>
@@ -134,6 +127,14 @@
                         </exclude>
                     </excludes>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

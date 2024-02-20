@@ -4,10 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="添加天气API，重构服务">
+    <list default="true" id="dca68ca1-454e-45d5-8aec-be1ac3216477" name="Changes" comment="重构服务">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-backEnd/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-gateway/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-interface/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.env.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/controller/AnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/java/com/zhy/project/controller/AnalysisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserInterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/mapper/UserInterfaceInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/sql/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-init/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-backEnd/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-backEnd/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/BaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/Api-common-0.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Api-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api-interface/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-interface/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +53,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Api-backEnd/Dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api-backEnd/src/main/resources/application-prod.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api-gateway/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api-gateway/src/main/resources/application-prod.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/docker-compose.env.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/docker-compose.service.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -48,39 +82,48 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zenghaoyuan/Desktop/workspace/Api-Platform-BackEnd/Api-backEnd/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;add52232c7d0a7a45de360d0ee47c3b5&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/zenghaoyuan/Desktop/workspace/ZFast-Api-Master/Api-gateway/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.26666668",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "spring.configuration.checksum": "add52232c7d0a7a45de360d0ee47c3b5"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Api-backEnd/src/main/resources" />
+      <recent name="$PROJECT_DIR$/Api-gateway/src/main/resources" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Api-interface" />
+      <recent name="$PROJECT_DIR$/Api-gateway" />
+      <recent name="$PROJECT_DIR$/Api-backEnd/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysql-init" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.yupi.apiinterface.exception" />
@@ -95,20 +138,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="ZFast-Api-Master" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="ZFast-Api-Master" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Docker.docker-compose.service.yml.api-gateway: Compose Deployment">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zhy.apigateway.ApiGatewayApplication" />
@@ -136,7 +166,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="docker-compose.env.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.env.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.service.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.service.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.service.yml.api-backend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="api-backend" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.service.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.service.yml.api-gateway: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="api-gateway" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.service.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose.env.yml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.service.yml.api-backend: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.service.yml.api-gateway: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.service.yml: Compose Deployment" />
       <item itemvalue="Spring Boot.ApiInterfaceApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.MyApplication" />
@@ -144,6 +220,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.MyApplication" />
+        <item itemvalue="Docker.docker-compose.service.yml.api-gateway: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.service.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.env.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.service.yml.api-backend: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +243,8 @@
       <workItem from="1705502329369" duration="3371000" />
       <workItem from="1705841226622" duration="117778000" />
       <workItem from="1707274188719" duration="53819000" />
+      <workItem from="1707892932745" duration="10326000" />
+      <workItem from="1708014543230" duration="56323000" />
     </task>
     <task id="LOCAL-00001" summary="v4">
       <created>1703140919818</created>
@@ -234,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1707887341301</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="重构服务">
+      <created>1707892971962</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707892971962</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +383,8 @@
     <MESSAGE value="重构用户管理，增加邮箱注册登陆（redis）" />
     <MESSAGE value="重构网关服务，添加参数校验功能" />
     <MESSAGE value="添加天气API，重构服务" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加天气API，重构服务" />
+    <MESSAGE value="重构服务" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构服务" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -305,7 +395,7 @@
         </breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
-          <line>164</line>
+          <line>161</line>
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -320,32 +410,32 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/BaseService.java</url>
-          <line>201</line>
+          <line>203</line>
           <option name="timeStamp" value="151" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Api-client-sdk/src/main/java/com/zhy/apiclientsdk/service/BaseService.java</url>
-          <line>197</line>
+          <line>199</line>
           <option name="timeStamp" value="152" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
-          <line>82</line>
+          <line>79</line>
           <option name="timeStamp" value="153" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
-          <line>141</line>
+          <line>138</line>
           <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
-          <line>126</line>
+          <line>123</line>
           <option name="timeStamp" value="158" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Api-gateway/src/main/java/com/zhy/apigateway/CustomGlobalFilter.java</url>
-          <line>182</line>
+          <line>179</line>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint type="java-line">

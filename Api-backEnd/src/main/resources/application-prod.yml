@@ -1,6 +1,58 @@
+#生产环境配置文件
 spring:
+  application:
+    name: Api-backEnd
+  # DataSource Config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/my_db
+    url: jdbc:mysql://mysql:3306/api
     username: root
-    password: 123456
+    password: root
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  # session 失效时间（分钟）
+  session:
+    timeout: 86400
+    store-type: redis
+  # redis 配置
+  redis:
+    port: 6379
+    host: redis
+    database: 0
+  mail:
+    host: smtp.qq.com
+    username: 389569461@qq.com
+    password: rvvznvawfxppbhie
+    email-from: 389569461@qq.com
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+server:
+  port: 8101
+  servlet:
+    context-path: /api
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+dubbo:
+  # 设置应用的名称
+  application:
+    name: dubbo-springboot-demo-provider
+  # 指定使用Dubbo协议，端口设置为-1，表示随机分配端口
+  protocol:
+    name: dubbo
+    port: -1
+  # 注册中心为Nacos，使用的地址是nacos://localhost:8848
+  registry:
+    id: nacos-registry
+    address: nacos://nacos:8848

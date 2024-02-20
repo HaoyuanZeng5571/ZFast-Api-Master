@@ -17,11 +17,11 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Api-backEnd" options="-parameters" />
+      <module name="Api-backEnd" options="" />
       <module name="Api-client-sdk" options="-parameters" />
-      <module name="Api-common" options="-parameters" />
-      <module name="Api-gateway" options="-parameters" />
-      <module name="Api-interface" options="-parameters" />
+      <module name="Api-common" options="" />
+      <module name="Api-gateway" options="" />
+      <module name="Api-interface" options="" />
     </option>
   </component>
 </project>

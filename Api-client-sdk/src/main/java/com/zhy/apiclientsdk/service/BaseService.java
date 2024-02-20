@@ -30,7 +30,7 @@ public class BaseService implements ApiService{
 
     private ApiClient apiClient;
 
-    public static final String GATEWAY_HOST = "http://localhost:8090";
+    public static final String GATEWAY_HOST = "http://zfastapi.com:8090";
 
     @Override
     public <O, T extends ResultResponse> T request(ApiClient apiClient, BaseRequest<O, T> request) throws ApiException {
@@ -182,6 +182,7 @@ public class BaseService implements ApiService{
         }
         // 获取请求路径
         String path = request.getPath().trim();
+        log.info("截断前请求路径：" + path);
         // 获取请求方法
         String method = request.getMethod().trim().toUpperCase();
 
@@ -195,11 +196,13 @@ public class BaseService implements ApiService{
         if (path.startsWith(GATEWAY_HOST)) {
             path = path.substring(GATEWAY_HOST.length());
         }
-        log.info("请求方法：{}，请求路径：{}，请求参数：{}", method, path, request.getRequestParams());
+        log.info("截断后请求路径：" + path);
+        //log.info("请求方法：{}，请求路径：{}，请求参数：{}", method, path, request.getRequestParams());
         HttpRequest httpRequest;
         switch (method) {
             case "GET": {
                 httpRequest = HttpRequest.get(splicingGetRequest(request, path));
+                log.info("封装的url：" + httpRequest.getUrl());
                 break;
             }
             case "POST": {

@@ -32,7 +32,6 @@ import reactor.core.publisher.Mono;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -52,9 +51,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
     @DubboReference
     private InnerUserService innerUserService;
 
-    public static final List<String> IP_WHITE_LIST = Arrays.asList("127.0.0.1");
-
-    private static final String INTERFACE_HOST = "http://localhost:8123";
+//    public static final List<String> IP_WHITE_LIST = Arrays.asList("127.0.0.1");
 
     private static final long FIVE_MINUTES = 60 * 5L;
 
@@ -82,12 +79,12 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         // 拿到响应对象
         ServerHttpResponse response = exchange.getResponse();
         // 3.访问控制，黑白名单
-        if (!IP_WHITE_LIST.contains(sourceAddress)) {
-            // 若访问地址不在白名单中，设置响应状态码为403 FORBIDDEN
-            response.setStatusCode(HttpStatus.FORBIDDEN);
-            // 返回处理完成的响应
-            return response.setComplete();
-        }
+//        if (!IP_WHITE_LIST.contains(sourceAddress)) {
+//            // 若访问地址不在白名单中，设置响应状态码为403 FORBIDDEN
+//            response.setStatusCode(HttpStatus.FORBIDDEN);
+//            // 返回处理完成的响应
+//            return response.setComplete();
+//        }
 
         // 4. 用户鉴权（ak和sk 的合法性）
 

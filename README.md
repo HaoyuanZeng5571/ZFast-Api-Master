@@ -27,7 +27,7 @@ This project is a front-end and back-end separated project. The back-end utilize
 
 #### Flow chart of the ZFast API
 
-![flow chart](/Users/zenghaoyuan/Desktop/flow chart.png)
+![flow chart](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/flow%20chart.png)
 
 
 

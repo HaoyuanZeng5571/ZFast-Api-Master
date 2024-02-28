@@ -31,6 +31,15 @@ public class UserVO implements Serializable {
     private String userAvatar;
 
     /**
+     * 访问密钥
+     */
+    private String accessKey;
+    /**
+     * 秘密密钥
+     */
+    private String secretKey;
+
+    /**
      * 性别
      */
     private Integer gender;

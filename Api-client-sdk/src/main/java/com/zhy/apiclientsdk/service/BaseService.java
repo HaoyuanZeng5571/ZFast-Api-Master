@@ -26,11 +26,11 @@ import java.util.Map;
 
 @Data
 @Slf4j
-public class BaseService implements ApiService{
+public abstract class BaseService implements ApiService{
 
     private ApiClient apiClient;
 
-    public static final String GATEWAY_HOST = "http://zfastapi.com:8090";
+    private static final String GATEWAY_HOST = "http://zfastapi.com:8090";
 
     @Override
     public <O, T extends ResultResponse> T request(ApiClient apiClient, BaseRequest<O, T> request) throws ApiException {

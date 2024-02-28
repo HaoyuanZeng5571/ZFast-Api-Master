@@ -55,7 +55,6 @@ public class UserController {
     @Resource
     private JavaMailSender javaMailSender;
 
-
     // region 登录相关
 
     /**
@@ -66,6 +65,23 @@ public class UserController {
      */
     @PostMapping("/register")
     public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
+//        String jdbcUrl = "jdbc:mysql://api-mysql:44351/api?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+//        String username = "root";
+//        String password = "F@#989dasbvsd&*@625";
+//        log.info("进来了"+jdbcUrl+username+ " " +password);
+//        // 尝试获取数据库连接
+//        try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
+//            // 获取数据库连接的元数据
+//            java.sql.DatabaseMetaData metaData = connection.getMetaData();
+//            log.info("metadata",metaData);
+//            // 打印数据库连接的URL
+//            String realUrl = metaData.getURL();
+//            System.out.println("Real MySQL Database URL: " + realUrl);
+//            log.info("Real MySQL Database URL: " + realUrl);
+//        } catch (SQLException e) {
+//            log.error("e",e.getMessage());
+//            e.printStackTrace();
+//        }
         if (userRegisterRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -322,6 +338,18 @@ public class UserController {
         userVOPage.setRecords(userVOList);
         return ResultUtils.success(userVOPage);
     }
+
+    @PostMapping("/update/voucher")
+    public BaseResponse<UserVO> updateVoucher(HttpServletRequest request) {
+        if (request == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User loginUser = userService.getLoginUser(request);
+        UserVO userVO = userService.updateVoucher(loginUser);
+        return ResultUtils.success(userVO);
+    }
+
+
 
     // endregion
 }

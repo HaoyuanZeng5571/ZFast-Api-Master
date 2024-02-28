@@ -7,6 +7,7 @@ import com.zhy.project.model.dto.user.UserEmailLoginRequest;
 import com.zhy.project.model.dto.user.UserEmailRegisterRequest;
 import com.zhy.project.model.dto.user.UserLoginRequest;
 import com.zhy.project.model.dto.user.UserRegisterRequest;
+import com.zhy.project.model.vo.UserVO;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -70,4 +71,11 @@ public interface UserService extends IService<User> {
      * @return
      */
     boolean userLogout(HttpServletRequest request);
+
+    /**
+     * 更新ak/sk
+     * @param loginUser
+     * @return
+     */
+    UserVO updateVoucher(User loginUser);
 }

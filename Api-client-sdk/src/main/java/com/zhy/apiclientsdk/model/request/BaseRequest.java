@@ -18,7 +18,6 @@ public abstract class BaseRequest <O, T extends ResultResponse>{
 
     /**
      * get方法
-
      */
     public abstract String getMethod();
 

@@ -1,6 +1,7 @@
 package com.zhy.project.service;
 
 
+import com.zhy.apiclientsdk.service.ApiService;
 import com.zhy.apicommon.model.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,18 @@ class UserServiceTest {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private ApiService apiService;
+
+//    @Test
+//    String getWeather() {
+//
+//        ApiClient apiClient = new ApiClient();
+//        WeatherRequest weatherRequest = new WeatherRequest();
+//        weatherRequest.setRequestParams();
+//        apiService.getWeatherInfo(apiClient,)
+//    }
 
     @Test
     void testAddUser() {

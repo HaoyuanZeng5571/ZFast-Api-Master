@@ -12,9 +12,11 @@ import com.zhy.project.model.dto.user.UserEmailLoginRequest;
 import com.zhy.project.model.dto.user.UserEmailRegisterRequest;
 import com.zhy.project.model.dto.user.UserLoginRequest;
 import com.zhy.project.model.dto.user.UserRegisterRequest;
+import com.zhy.project.model.vo.UserVO;
 import com.zhy.project.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -163,6 +165,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             }
             return user.getId();
         }
+    }
+
+    @Override
+    public UserVO updateVoucher(User loginUser) {
+        String userAccount = loginUser.getUserAccount();
+        String accessKey = DigestUtil.md5Hex(SALT + userAccount + RandomUtil.randomNumbers(5));
+        String secretKey = DigestUtil.md5Hex(SALT + userAccount + RandomUtil.randomNumbers(8));
+        loginUser.setAccessKey(accessKey);
+        loginUser.setSecretKey(secretKey);
+        boolean result = this.updateById(loginUser);
+        if (!result) {
+            throw new BusinessException(ErrorCode.OPERATION_ERROR);
+        }
+        UserVO userVO = new UserVO();
+        BeanUtils.copyProperties(loginUser, userVO);
+        return userVO;
     }
 
     /**

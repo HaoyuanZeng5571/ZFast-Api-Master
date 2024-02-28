@@ -96,40 +96,40 @@ Response:
 
 ##### Login page
 
-![image-20240229011427608](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229011427608.png)
+![image-20240229011427608](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229011427608.png)
 
 ##### Registry page
 
-![image-20240229011450952](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229011450952.png)
+![image-20240229011450952](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229011450952.png)
 
 ##### Home page
 
-![image-20240229010622245](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229010622245.png)
+![image-20240229010622245](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229010622245.png)
 
 ##### Interface description
 
 1. Online interface
 
-![image-20240229010857418](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229010857418.png)
+![image-20240229010857418](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229010857418.png)
 
 2. Online invoke
 
-![image-20240229010939760](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229010939760.png)
+![image-20240229010939760](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229010939760.png)
 
 3. Error code reference
 
-![image-20240229011007412](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229011007412.png)
+![image-20240229011007412](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229011007412.png)
 
 ##### Admin page
 
 1. Interface management
 
-![image-20240229011235297](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229011235297.png)
+![image-20240229011235297](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229011235297.png)
 
 2. Interface analysis
 
-![image-20240229011313709](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229011313709.png)
+![image-20240229011313709](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229011313709.png)
 
 ##### User information
 
-![image-20240229011358023](/Users/zenghaoyuan/Library/Application Support/typora-user-images/image-20240229011358023.png)
+![image-20240229011358023](https://github.com/HaoyuanZeng5571/picture/blob/main/tu/image-20240229011358023.png)

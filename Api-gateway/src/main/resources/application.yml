@@ -4,7 +4,7 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - AddResponseHeader=source, zhy
+        - AddResponseHeader=source, *****
       routes:
         - id: api_route
           uri: http://localhost:8123

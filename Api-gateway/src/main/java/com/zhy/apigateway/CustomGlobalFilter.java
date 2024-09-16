@@ -9,6 +9,7 @@ import com.zhy.apicommon.model.entity.User;
 import com.zhy.apicommon.service.InnerInterfaceInfoService;
 import com.zhy.apicommon.service.InnerUserInterfaceInfoService;
 import com.zhy.apicommon.service.InnerUserService;
+import com.zhy.utils.RedissonLockUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -30,6 +31,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.Resource;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,9 @@ import java.util.Objects;
 @Slf4j
 @Component
 public class CustomGlobalFilter implements GlobalFilter, Ordered {
+
+    @Resource
+    private RedissonLockUtil redissonLockUtil;
 
     @DubboReference
     private InnerInterfaceInfoService innerInterfaceInfoService;
@@ -76,6 +81,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         log.info("url: "+ request.getURI());
 
 
+
         // 拿到响应对象
         ServerHttpResponse response = exchange.getResponse();
         // 3.访问控制，黑白名单
@@ -101,6 +107,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         if ((currentTime - Long.parseLong(timestamp)) >= FIVE_MINUTES) {
             return handleNoAuth(response);
         }
+
         // 验证身份合法性
         User invokeUser = null;
         try {
@@ -117,7 +124,6 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         if (Long.parseLong(nonce) > 10000L) {
             return handleNoAuth(response);
         }
-
 
         // 从数据库中查询sk
         // 从获取到的ak对请求体中获取用户的sk
@@ -177,7 +183,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
 
         }
         // 7.请求转发，调用模拟接口 + 响应日志
-         return handleResponse(exchange,chain,interfaceInfo.getId(),invokeUser.getId());
+         return handleResponse(exchange,  chain, invokeUser, interfaceInfo.getId());
     }
 
 
@@ -188,8 +194,9 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
      * @param chain
      * @return
      */
-    public Mono<Void> handleResponse(ServerWebExchange exchange, GatewayFilterChain chain, long interfaceInfoId, long userId) {
+    public Mono<Void> handleResponse(ServerWebExchange exchange, GatewayFilterChain chain, User user, long interfaceInfoId) {
         try {
+            // 获取原始的响应对象
             ServerHttpResponse originalResponse = exchange.getResponse();
             // 缓存数据的工厂
             DataBufferFactory bufferFactory = originalResponse.bufferFactory();
@@ -210,7 +217,9 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
                                     fluxBody.map(dataBuffer -> {
                                         // 7. 调用成功，接口调用次数 + 1 invokeCount
                                         try {
-                                            innerUserInterfaceInfoService.invokeCount(interfaceInfoId, userId);
+                                            redissonLockUtil.redissonDistributedLocks(("gateway" + user.getUserAccount()).intern(), ()->{
+                                                innerUserInterfaceInfoService.invokeCount(interfaceInfoId, user.getId());
+                                            }, "接口调用次数统计失败");
                                         } catch (Exception e) {
                                             log.error("invokeCount error", e);
                                         }
